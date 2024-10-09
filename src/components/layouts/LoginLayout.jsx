@@ -5,11 +5,11 @@ import theme from '../../theme';
 
 const Copyright = () => {
     return (
-        <Box bgcolor="#0F4B7E" py={2} textAlign="center">
+        <Box bgcolor={theme.palette.background.default} py={2} textAlign="center">
             <Typography variant="body2" color="white">
                 {'Copyright © '}
                 <Link color="inherit" href="#">
-                    CondoPlanner
+                    Lucid Dreams
                 </Link>{' '}
                 {new Date().getFullYear()}
                 {'.'}
@@ -50,7 +50,7 @@ const LoginLayout = () => {
             display="flex"
             flexDirection="column"
             minHeight="100vh"
-            bgcolor="#0F4B7E"
+            bgcolor={theme.palette.background.default}
         >
             <Grid2
                 container
@@ -63,7 +63,6 @@ const LoginLayout = () => {
                     elevation={1}
                     style={{padding: theme.spacing(4)}}
                 >
-                    <FormLogo />
                     <Outlet /> 
                 </Paper>
             </Grid2>

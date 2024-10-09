@@ -1,7 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { red, green, amber, blue as muiBlue } from '@mui/material/colors';
 
-const primaryColor = '#0F4B7E';
+const primaryColor = '#8f69ff';
 const secondaryColor = '#FF6B6B';
 
 let theme = createTheme({
@@ -27,7 +27,7 @@ let theme = createTheme({
             main: muiBlue.A400,
         },
         background: {
-            default: '#F5F5F5',
+            default: '#2b3044',
             paper: '#FFFFFF',
         },
         text: {

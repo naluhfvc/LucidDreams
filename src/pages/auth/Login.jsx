@@ -6,9 +6,10 @@ import {
     TextField,
     Box,
     Grid2,
-    Button
+    Button,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import GoogleIcon from '@mui/icons-material/Google'; // Importa o ícone do Google
 
 const LoginPage = () => {
     const [loginForm, setLoginForm] = useState({
@@ -22,10 +23,17 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { email, password } = loginForm;
-        if (isLogin) {
-            await loginUser(email, password);
-        } else {
-            await registerUser(email, password);
+        setLoading(true); // Inicia o carregamento
+        try {
+            if (isLogin) {
+                await loginUser(email, password);
+            } else {
+                await registerUser(email, password);
+            }
+        } catch (error) {
+            console.error("Erro ao fazer login:", error);
+        } finally {
+            setLoading(false); // Finaliza o carregamento
         }
     };
 
@@ -38,9 +46,16 @@ const LoginPage = () => {
         }));
     };
 
-    // const handleGoogleLogin = async () => {
-    //     await signInWithGoogle();
-    // };
+    const handleGoogleLogin = async () => {
+        setLoading(true); // Inicia o carregamento
+        try {
+            await signInWithGoogle();
+        } catch (error) {
+            console.error("Erro ao fazer login com Google:", error);
+        } finally {
+            setLoading(false); // Finaliza o carregamento
+        }
+    };
 
     return (
         <Grid2 container direction="column" alignItems="center" sx={{ mt: theme.spacing(5) }}>
@@ -122,13 +137,12 @@ const LoginPage = () => {
                             variant='contained'
                             disabled={loading}
                             onClick={handleSubmit}
-                            loading={loading}
                             fullWidth
                             sx={{
                                 my: theme.spacing(3)
                             }}
                         >
-                            Entrar
+                            {loading ? "Carregando..." : "Entrar"}
                         </Button>
                     </Grid2>
                     <Grid2 container justifyContent="center">
@@ -143,36 +157,24 @@ const LoginPage = () => {
                             </Link>
                         </Grid2>
                     </Grid2>
+                    <Grid2 container justifyContent="center" sx={{ mt: theme.spacing(2) }}>
+                        <Grid2>
+                            <Button
+                                variant='outlined'
+                                onClick={handleGoogleLogin}
+                                startIcon={<GoogleIcon />}
+                                fullWidth
+                                sx={{
+                                    my: theme.spacing(1)
+                                }}
+                            >
+                                Login com Google
+                            </Button>
+                        </Grid2>
+                    </Grid2>
                 </Box>
             </Grid2>
         </Grid2>
-        // <div>
-        //   <h2>{isLogin ? "Login" : "Cadastro"}</h2>
-        //   <form onSubmit={handleSubmit}>
-        //     <input
-        //       type="email"
-        //       value={email}
-        //       onChange={(e) => setEmail(e.target.value)}
-        //       placeholder="Email"
-        //       required
-        //     />
-        //     <input
-        //       type="password"
-        //       value={password}
-        //       onChange={(e) => setPassword(e.target.value)}
-        //       placeholder="Senha"
-        //       required
-        //     />
-        //     <button type="submit">{isLogin ? "Entrar" : "Cadastrar"}</button>
-        //   </form>
-
-        //   <button onClick={() => setIsLogin(!isLogin)}>
-        //     {isLogin ? "Não tem conta? Cadastre-se" : "Já tem conta? Faça login"}
-        //   </button>
-
-        //   <hr />
-        //   <button onClick={handleGoogleLogin}>Login com Google</button>
-        // </div>
     );
 };
 
