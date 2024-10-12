@@ -6,7 +6,7 @@ import {
 } from "../../controllers/AuthController";
 import { Link, Typography, TextField, Box, Grid2, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import GoogleIcon from "@mui/icons-material/Google"; // Importa o ícone do Google
+import GoogleIcon from "@mui/icons-material/Google";
 
 const RegisterPage = () => {
   const [registerForm, setRegisterForm] = useState({
@@ -27,7 +27,7 @@ const RegisterPage = () => {
     } catch (error) {
       console.error("Erro ao fazer cadastro:", error);
     } finally {
-      setLoading(false); // Finaliza o carregamento
+      setLoading(false);
     }
   };
 
@@ -41,13 +41,13 @@ const RegisterPage = () => {
   };
 
   const handleGoogleLogin = async () => {
-    setLoading(true); // Inicia o carregamento
+    setLoading(true);
     try {
       await signInWithGoogle();
     } catch (error) {
       console.error("Erro ao fazer login com Google:", error);
     } finally {
-      setLoading(false); // Finaliza o carregamento
+      setLoading(false);
     }
   };
 

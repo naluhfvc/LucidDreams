@@ -9,7 +9,7 @@ import {
     Button,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import GoogleIcon from '@mui/icons-material/Google'; // Importa o ícone do Google
+import GoogleIcon from '@mui/icons-material/Google';
 
 const LoginPage = () => {
     const [loginForm, setLoginForm] = useState({
@@ -23,7 +23,7 @@ const LoginPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const { email, password } = loginForm;
-        setLoading(true); // Inicia o carregamento
+        setLoading(true);
         try {
             if (isLogin) {
                 await loginUser(email, password);
@@ -33,7 +33,7 @@ const LoginPage = () => {
         } catch (error) {
             console.error("Erro ao fazer login:", error);
         } finally {
-            setLoading(false); // Finaliza o carregamento
+            setLoading(false);
         }
     };
 
@@ -47,13 +47,13 @@ const LoginPage = () => {
     };
 
     const handleGoogleLogin = async () => {
-        setLoading(true); // Inicia o carregamento
+        setLoading(true);
         try {
             await signInWithGoogle();
         } catch (error) {
             console.error("Erro ao fazer login com Google:", error);
         } finally {
-            setLoading(false); // Finaliza o carregamento
+            setLoading(false);
         }
     };
 
@@ -160,7 +160,8 @@ const LoginPage = () => {
                     <Grid2 container justifyContent="center" sx={{ mt: theme.spacing(2) }}>
                         <Grid2>
                             <Button
-                                variant='outlined'
+                                color="secondary"
+                                variant='contained'
                                 onClick={handleGoogleLogin}
                                 startIcon={<GoogleIcon />}
                                 fullWidth

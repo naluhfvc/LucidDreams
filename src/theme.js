@@ -113,6 +113,26 @@ let theme = createTheme({
     shape: {
         borderRadius: 8,
     },
+    components: {
+        MuiButton: {
+          styleOverrides: {
+            containedPrimary: {
+              backgroundColor: primaryColor,
+              color: '#FFFFFF',
+              '&:hover': {
+                backgroundColor: '#7A55E6',
+              },
+            },
+            containedSecondary: {
+              backgroundColor: secondaryColor,
+              color: '#FFFFFF',
+              '&:hover': {
+                backgroundColor: '#FF5656',
+              },
+            },
+          },
+        },
+      },
 });
 
 theme = responsiveFontSizes(theme);

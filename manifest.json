@@ -1,16 +1,10 @@
 {
-  "name": "Cadastro de Alunos",
-  "short_name": "CadAlunos",
-  "categories": ["education","social"],
-  "start_url": "/login",
+  "name": "Lucid Dreams",
+  "short_name": "Dreams",
+  "categories": ["social"],
+  "start_url": "https://app-lucid-dreams.glitch.me/login",
   "scope": ".",
-  "shortcuts" : [
-    {
-      "name": "Login",
-      "url": "/login",
-      "description": "Cadastro de Alunos"
-    }
-  ],
+  "shortcuts" : [],
    "icons": [
         {
           "src": "https://cdn.glitch.global/6db14119-43b6-433c-a071-924b6c869839/144-144.jpeg?v=1649263127255",

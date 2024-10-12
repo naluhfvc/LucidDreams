@@ -49,13 +49,11 @@ import {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      console.log("Usuário autenticado com Google:", user);
 
       // Verifique se o usuário já tem um e-mail verificado
       if (!user.emailVerified) {
         // Enviar e-mail de verificação
         await sendEmailVerification(user);
-        console.log("E-mail de verificação enviado para:", user.email);
       }
   
       // Salve os dados do usuário, se necessário
