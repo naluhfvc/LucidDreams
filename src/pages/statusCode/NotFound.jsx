@@ -6,20 +6,25 @@ export const NotFound = () => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
-        navigate(-1);
+        const dest = getNavigationDestination();
+        navigate(dest);
     };
+
+    const getNavigationDestination = () => {
+        return window.history.length > 1
+            ? -1
+            : "/"; 
+    }
 
     return (
         <Box
-            sx={{
-                color: 'white',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                padding: 2,
-            }}
+            color="white"
+            display={"flex"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            textAlign={"center"}
+            p={2}
         >
             <img 
                 src="/404-error-story.svg"

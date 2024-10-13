@@ -50,7 +50,6 @@ const LoginLayout = () => {
             display="flex"
             flexDirection="column"
             minHeight="100vh"
-            bgcolor={theme.palette.background.default}
         >
             <Grid2
                 container
@@ -59,12 +58,12 @@ const LoginLayout = () => {
                 sx={{minWidth: "30%", paddingBottom: 5, maxWidth: "40%"}}
                 gap={3}
             >
-                <Paper
+                {/* <Paper
                     elevation={1}
                     style={{padding: theme.spacing(4)}}
-                >
+                > */}
                     <Outlet /> 
-                </Paper>
+                {/* </Paper> */}
             </Grid2>
             <Copyright />
         </Box>
